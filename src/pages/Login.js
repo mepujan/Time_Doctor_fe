@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import axios from '../api/axios';
 
 
 const Login = () => {
@@ -20,6 +21,18 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        try{
+        const loginInfo = {
+            "username":user,
+            "password":pwd
+        }
+        const response = await axios.post("/api/login",loginInfo);
+        setSuccess(true);
+        localStorage.setItem("userToken",response.data.token)
+        
+    }catch(e){
+        setErrMsg("Invalid Username or Password.")
+    }
     }
     
     return (
