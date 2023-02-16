@@ -66,7 +66,7 @@ export const SignUp = () =>{
             )}  
             <h2 style={{textAlign:"center",fontSize:"bold"}}>Create Account</h2>
             <Form onSubmit={handleSubmit} encType='multipart/form-data'>
-            <Form.Group classname="mb-3 mt-1" controlId="firstname">
+            <Form.Group className="mb-3 mt-1" controlId="firstname">
                 <Form.Label>First Name</Form.Label>
                 <Form.Control type="text" 
                 value = {firstName}
@@ -75,7 +75,7 @@ export const SignUp = () =>{
                 required/>
             </Form.Group>
 
-            <Form.Group classname="mb-3 mt-1" controlId="middlename">
+            <Form.Group className="mb-3 mt-1" controlId="middlename">
                 <Form.Label>Middle Name</Form.Label>
                 <Form.Control type="text" 
                 value = {middleName}
@@ -84,7 +84,7 @@ export const SignUp = () =>{
                 />
             </Form.Group>
 
-            <Form.Group classname="mb-3 mt-1" controlId="lastname">
+            <Form.Group className="mb-3 mt-1" controlId="lastname">
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control type="text" 
                 value = {lastName}
@@ -94,7 +94,7 @@ export const SignUp = () =>{
                 />
             </Form.Group>
 
-            <Form.Group classname="mb-3 mt-1" controlId="email">
+            <Form.Group className="mb-3 mt-1" controlId="email">
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" 
                 value = {email}
@@ -104,7 +104,7 @@ export const SignUp = () =>{
             </Form.Group>
 
 
-            <Form.Group classname="mb-3 mt-1" controlId="username">
+            <Form.Group className="mb-3 mt-1" controlId="username">
                 <Form.Label>Username</Form.Label>
                 <Form.Control type="text" 
                 value = {userName}

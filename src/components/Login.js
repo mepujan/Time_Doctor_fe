@@ -39,7 +39,7 @@ export const Login = () =>{
             )}  
             <h2 style={{textAlign:"center",fontSize:"bold"}}>Login</h2>
             <Form onSubmit={handleSubmit}>
-                <Form.Group classname="mb-3 mt-1" controlId="username">
+                <Form.Group className="mb-3 mt-1" controlId="username">
                 <Form.Label>Username</Form.Label>
                 <Form.Control type="text" 
                 value = {userName}
