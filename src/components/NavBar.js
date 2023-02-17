@@ -7,7 +7,9 @@ import { useNavigate } from 'react-router-dom';
 export const NavBar = () =>{
     const token = localStorage.getItem("userToken");
     const navigate = useNavigate();
-
+    // const url = new URL(document.location);
+    // const pathName = url.pathname;
+    // console.log(pathName == "/login");
     return (
     <Navbar bg="primary" expand="lg" variant= "dark">
       <Container fluid>
@@ -17,12 +19,13 @@ export const NavBar = () =>{
               width="80"
               height="80"
               style={{marginLeft:20}}
-              className="d-inline-block align-top"
+              className="d-inline-block align-top img-fluid"
               alt="Time Doctor Logo"
             />{'  '}
             <br/>
             <b>Time Doctor</b>
           </Navbar.Brand>
+          
           {token ? <ProfilePictureNavBar/> :  
           <Button style={{margin:20}} size="lg" 
           onClick={() =>navigate("/login")}
