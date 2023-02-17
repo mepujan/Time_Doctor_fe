@@ -57,8 +57,8 @@ export const SignUp = () =>{
     return(
         <>
         <div className='row'>
-            <div className='col-md-4'></div>
-            <div className='col-md-4 mt-5'> 
+            <div className='col-md-3'></div>
+            <div className='col-md-6 mt-5'> 
             {errMsg && (
             <Alert variant='danger'>
                 {errMsg}
@@ -190,7 +190,7 @@ export const SignUp = () =>{
                 </span>
             </p>
             </div>
-            <div className='col-md-4'></div>
+            <div className='col-md-3'></div>
         </div>
         </>
     )
