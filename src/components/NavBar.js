@@ -7,9 +7,9 @@ import { useNavigate } from 'react-router-dom';
 export const NavBar = () =>{
     const token = localStorage.getItem("userToken");
     const navigate = useNavigate();
-    const url = new URL(document.location);
-    const pathName = url.pathname;
-    console.log(pathName === "/login");
+    // const url = new URL(document.location);
+    // const pathName = url.pathname;
+    // console.log(pathName == "/login");
     return (
     <Navbar bg="primary" expand="lg" variant= "dark">
       <Container fluid>
