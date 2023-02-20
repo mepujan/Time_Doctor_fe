@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 export const ProfilePictureNavBar = () =>{
     const username = localStorage.getItem("username");
     const profileImage = localStorage.getItem("profile_pic");
-    const ImageURL = "http://"+profileImage
+    const ImageURL = "http://"+profileImage;
 
     const navigate = useNavigate();
 
-    const logoutMethod = () =>{
+    const logoutMethod = (e) =>{
+      e.preventDefault();
       localStorage.clear();
       navigate("/login");
     }

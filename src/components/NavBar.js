@@ -1,15 +1,11 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import { ProfilePictureNavBar } from './ProfilePictureNavBar';
-import { useNavigate } from 'react-router-dom';
+import { LoginBtn } from './LoginBtn';
 
-export const NavBar = () =>{
-    const token = localStorage.getItem("userToken");
-    const navigate = useNavigate();
-    // const url = new URL(document.location);
-    // const pathName = url.pathname;
-    // console.log(pathName == "/login");
+export const NavBar = ({loginBtn}) =>{
+
+
+    console.log(loginBtn);
     return (
     <Navbar bg="primary" expand="lg" variant= "dark">
       <Container fluid>
@@ -26,16 +22,7 @@ export const NavBar = () =>{
             <b>Time Doctor</b>
           </Navbar.Brand>
           
-          {token ? <ProfilePictureNavBar/> :  
-          <Button style={{margin:20}} size="lg" 
-          onClick={() =>navigate("/login")}
-          variant="success">Login</Button>}
-{/* 
-          {!pathName === "/login" && (
-             <Button style={{margin:20}} size="lg" 
-             onClick={() =>navigate("/login")}
-             variant="success">Login</Button>
-          )} */}
+          {loginBtn && <LoginBtn/>}
       </Container>
     </Navbar>
   );

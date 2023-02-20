@@ -5,7 +5,7 @@ import { SignUp } from "../components/SignUp"
 export const SignUpPage = () =>{
     return(
         <>
-            <NavBar />
+            <NavBar loginBtn={false}/>
             <SignUp/>
             <Footer/>
         </>
