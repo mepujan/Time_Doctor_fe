@@ -3,9 +3,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import { LoginBtn } from './LoginBtn';
 
 export const NavBar = ({loginBtn}) =>{
-
-
-    console.log(loginBtn);
     return (
     <Navbar bg="primary" expand="lg" variant= "dark">
       <Container fluid>

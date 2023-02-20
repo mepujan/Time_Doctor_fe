@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Form,Button,Alert} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "../api/axios";
-import {useGetRoles} from '../hooks/useGetRoles';
+import {useResources} from '../hooks/useResource';
 
 
 const GenderOptions = ['male','female','others'];
@@ -24,7 +24,7 @@ export const SignUp = () =>{
     const [profileImage,setProfileImage] = useState('');
     const [errMsg,setErrMsg] = useState("");
 
-    const roles = useGetRoles();
+    const roles = useResources("/api/roles");
     const navigate = useNavigate();
 
     const handleSubmit = async(e) =>{
@@ -149,7 +149,7 @@ export const SignUp = () =>{
                     required />
             </Form.Group>
 
-            <Form.Group className="mb-4 mt-3" controlId="gender">
+            <Form.Group className="mb-4 mt-3" controlId="role">
                 <Form.Label>Role</Form.Label>      
                 <Form.Select onChange ={e=>setRole(e.target.value)} >
                     {roles?roles.map(r => <option value = {r.id}key= {r.id}>{r.name}</option>):<option >Patient</option>}
@@ -164,14 +164,14 @@ export const SignUp = () =>{
                 </Form.Select>
             </Form.Group>
 
-            <Form.Group className="mb-4 mt-3" controlId="gender">
+            <Form.Group className="mb-4 mt-3" controlId="blood-group">
                 <Form.Label>Blood Group</Form.Label>      
                 <Form.Select  onChange = {e=>setBloodGroup(e.target.value)}>
                    {BloodGroupOptions.map(bldgrp =><option value = {bldgrp} key = {bldgrp}>{bldgrp}</option>)}
                 </Form.Select>
             </Form.Group>
             
-            <Form.Group className="mb-4 mt-3" controlId="formDOB">
+            <Form.Group className="mb-4 mt-3" controlId="profilepic">
                 <Form.Label>Profile Picture</Form.Label>
                 <Form.Control type="file" 
                     accept="image/*"
