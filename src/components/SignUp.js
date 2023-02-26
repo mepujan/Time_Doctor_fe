@@ -1,8 +1,8 @@
-import { useState } from "react"
 import { Form,Button,Alert} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "../api/axios";
 import {useResources} from '../hooks/useResource';
+import { useState } from "react";
 
 
 const GenderOptions = ['male','female','others'];
@@ -17,16 +17,15 @@ export const SignUp = () =>{
     const [userName,setUserName] = useState('');
     const [password,setPassword] = useState('');
     const [address,setAddress] = useState('');
-    const [gender,setGender] = useState('');
-    const [role,setRole] = useState('');
+    const [gender,setGender] = useState(GenderOptions[0]);
+    const [role,setRole] = useState();
     const [dob,setDOB] = useState('');
-    const [bloodGroup,setBloodGroup] = useState('');
+    const [bloodGroup,setBloodGroup] = useState(BloodGroupOptions[0]);
     const [profileImage,setProfileImage] = useState('');
     const [errMsg,setErrMsg] = useState("");
 
     const roles = useResources("/api/roles");
     const navigate = useNavigate();
-
     const handleSubmit = async(e) =>{
         e.preventDefault();
         try{
@@ -44,7 +43,6 @@ export const SignUp = () =>{
             formData.append('gender',gender);
             formData.append('blood_group',bloodGroup);
             formData.append('profile_image',profileImage,profileImage.name);
-            console.log(formData);
            
             await axios.post("/api/createUser",formData);
             navigate("/login");
@@ -152,7 +150,7 @@ export const SignUp = () =>{
             <Form.Group className="mb-4 mt-3" controlId="role">
                 <Form.Label>Role</Form.Label>      
                 <Form.Select onChange ={e=>setRole(e.target.value)} >
-                    {roles?roles.map(r => <option value = {r.id}key= {r.id}>{r.name}</option>):<option >Patient</option>}
+                    {roles?.map(r => <option value = {r.id}key= {r.id}>{r.name}</option>)}
                 </Form.Select>
             </Form.Group>
 
@@ -160,7 +158,7 @@ export const SignUp = () =>{
             <Form.Group className="mb-4 mt-3" controlId="gender">
                 <Form.Label>Gender</Form.Label>      
                 <Form.Select onChange={e=>setGender(e.target.value)} >
-                    {GenderOptions.map(g => <option value={g} key={g}>{g}</option>)}
+                    {GenderOptions?.map(g => <option value={g} key={g}>{g}</option>)}
                 </Form.Select>
             </Form.Group>
 
