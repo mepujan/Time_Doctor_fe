@@ -1,14 +1,11 @@
 import { Nav } from "react-bootstrap";
 import { FcAlarmClock,FcCalendar,FcManager,FcPortraitMode,FcList,FcBusinessman } from "react-icons/fc";
-import { useParams } from "react-router-dom";
 
 export const SideBar = () => {
     const style = {
             fontWeight: 500,
             color: "#333",
     };
-    const params = useParams();
-    console.log(params);
     return (
         <>
            <Nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">

@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useToken } from "../hooks/useToken";
 
 export const ProfilePictureNavBar = () =>{
-    // const username = localStorage.getItem("username");
     const username = useToken('username');
-    // const profileImage = localStorage.getItem("profile_pic");
-    const profileImage = useToken("profile_pic")
+    const profileImage = useToken("profile_pic");
+    const imageUrl = `http://${profileImage}`;
 
     const navigate = useNavigate();
 
@@ -18,7 +17,7 @@ export const ProfilePictureNavBar = () =>{
     return (
         <Navbar.Brand>
        <img
-          src={profileImage}
+          src={imageUrl}
           width="60"
           height="60"
           className="rounded-circle align-top ms-4"
