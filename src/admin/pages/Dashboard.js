@@ -5,7 +5,7 @@ import { DashComponent } from "../components/DashComponent"
 export const DashBoard = () =>{
     return(
         <>
-        <NavBar/>
+        <NavBar loginBtn={true}/>
         <DashComponent/>
         <Footer/>
         </>

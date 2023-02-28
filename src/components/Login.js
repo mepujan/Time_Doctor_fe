@@ -60,13 +60,13 @@ export const Login = () =>{
                 Login
                 </Button>
             </Form>
-            <p>
+            {/* <p>
                 Need an Account?<br />
                 <span className="line">
-                 {/*put router link here*/}
+                 put router link here
                 <a href="/signup">Sign Up</a>
                 </span>
-            </p>
+            </p> */}
             </div>
             <div className='col-md-4'></div>
         </div>
