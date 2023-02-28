@@ -5,7 +5,7 @@ import { Doctor } from "../components/Doctor"
 export const DoctorPage = () =>{
     return (
         <>
-        <NavBar/>
+        <NavBar loginBtn={true}/>
         <Doctor/>
         <Footer/>
         </>

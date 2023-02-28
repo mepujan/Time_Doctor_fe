@@ -1,4 +1,4 @@
-import { Nav } from "react-bootstrap"
+import { SideBar } from "./SideBar";
 
 export const DashComponent = () => {
     const style = {
@@ -12,40 +12,7 @@ export const DashComponent = () => {
         <>
             <div className="container-fluid">
                 <div className="row">
-                    <Nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                        <div className="position-sticky pt-3">
-                            <ul className="nav flex-column">
-                                <li className="nav-item">
-                                     <Nav.Link href="/admin/dashboard">
-                                     <span data-feather="home"></span>
-                                        DashBoard
-                                    </Nav.Link>
-                                </li>
-                                <li className="nav-item">
-                                     <Nav.Link href="/admin/patient">
-                                        Patients
-                                    </Nav.Link>
-                                </li>
-                                <li className="nav-item">
-                                     <Nav.Link href="/admin/doctor">
-                                        Doctors
-                                    </Nav.Link>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href>
-                                        <span data-feather="users"></span>
-                                        Add Users
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href>
-                                        <span data-feather="users"></span>
-                                        Add Schedule
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </Nav>
+                    <SideBar/>
 
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                         <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">

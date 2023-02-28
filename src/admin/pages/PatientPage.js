@@ -5,7 +5,7 @@ import { Patient } from "../components/Patient"
 export const PatientPage = () =>{
     return (
         <>
-        <NavBar/>
+        <NavBar loginBtn={true}/>
         <Patient/>
         <Footer/>
         </>
