@@ -9,7 +9,7 @@ export const DashComponent = () => {
         scrolling: "no"
     }
     return (
-        <>
+        <> 
             <div className="container-fluid">
                 <div className="row">
                     <SideBar/>
@@ -19,7 +19,7 @@ export const DashComponent = () => {
                             <h1 className="h2">Dashboard</h1>
                         </div>
                         <div className="container">
-                            <iframe title="calendar" src="https://calendar.google.com/calendar/embed?src=e7b0d11ff9b2000c33a8bebd77111ab6e352f86b969708def5ecf03f45d7206a%40group.calendar.google.com&ctz=America%2FToronto" style={style}></iframe>
+                        <iframe title="calendar" style={style} src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%234285F4&ctz=America%2FToronto&showPrint=0&showCalendars=1&src=bWVwdWphbjEwQGdtYWlsLmNvbQ&color=%23039BE5"></iframe>
                         </div>
 
                     </main>
