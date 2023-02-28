@@ -42,7 +42,7 @@ export const SideBar = () => {
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href = "/admin/send-notification" style={style}>
+                                    <a className="nav-link" href = "/admin/schedule-surgery" style={style}>
                                         <FcCalendar className="me-2"/>
                                         Schedule Surgery 
                                     </a>

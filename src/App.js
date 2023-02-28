@@ -11,6 +11,7 @@ import { LoginPageRestrict } from './LoginPageRestrict';
 import { ProfilePage } from './pages/ProfilePage';
 import { ChangePasswordPage } from './pages/UpdatePasswordPage';
 import { SendNotificationPage } from './admin/pages/SendNotificationPage';
+import { AddSurgeryEventPage } from './admin/pages/AddSurgeryEvent';
 
 const App = () => {
   return (
@@ -45,6 +46,13 @@ const App = () => {
             <PrivateRoute>
               <DashBoard />
             </PrivateRoute>
+
+          } />
+
+        <Route path='/schedule-surgery' element={
+              <PrivateRoute>
+                <AddSurgeryEventPage />
+              </PrivateRoute>
 
           } />
           <Route path='patient' element={
