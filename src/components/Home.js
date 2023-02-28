@@ -4,12 +4,12 @@ export const Home = () => {
         width: 1000,
         height: 650,
         frameBorder: 0,
-        scrolling: "no"
+        scrolling: "no",
     }
     return (
         <div style={{ textAlign: "center" }} className="mt-5">
             <div className="container">
-                <iframe title="calendar" src="https://calendar.google.com/calendar/embed?src=e7b0d11ff9b2000c33a8bebd77111ab6e352f86b969708def5ecf03f45d7206a%40group.calendar.google.com&ctz=America%2FToronto" style={style}></iframe>
+            <iframe title="calendar" style={style} src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%234285F4&ctz=America%2FToronto&showPrint=0&showCalendars=1&src=bWVwdWphbjEwQGdtYWlsLmNvbQ&color=%23039BE5"></iframe>
             </div>
         </div>
     )
