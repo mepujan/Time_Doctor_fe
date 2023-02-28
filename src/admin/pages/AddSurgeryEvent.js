@@ -1,5 +1,13 @@
+import { SurgeryForm } from "../components/SurgeryForm"
+import { Footer } from "../../components/Footer"
+import { NavBar } from "../../components/NavBar"
+
 export const AddSurgeryEventPage = () =>{
     return (
-        <h2>Welcome to Surgery Page</h2>
+        <>
+            <NavBar loginBtn={true}/>
+            <SurgeryForm />
+            <Footer/>
+        </>
     )
 }
