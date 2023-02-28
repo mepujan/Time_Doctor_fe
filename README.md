@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+## About Time Doctor Project
+Bluewater Health has been overwhelmed by the significant number of surgeries required in the aftermath of the Covid-19 pandemic. The company was forced to shut down all non-urgent surgeries for over 14 months, leading to the backlog they are facing now. Thankfully they were able to hire Time Doctor, a software company that has designed time-tracking and scheduling solutions for several industries. You and your colleagues have been hired as the newest group of interns for Time Doctor to work as part of the development team to build a surgery scheduling tool that the administration and hospital staff can use at Bluewater Health.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Feature Completed Till Date
+1. User Login and Signup
+2. Creating Roles for user
+3. Email and SMS notification
+4. User profile update
+5. User password update
 
-## Available Scripts
+## Technology Used
+1. <b>ReactJS</b> for front-end
+2. <b> NodeJS (Express) </b> for back-end
+3. <b>MySQL Server </b> for Database
+4. <b>Postman</b> for API Testing
 
-In the project directory, you can run:
+## Packages Used 
+1. <b>Axios </b> to communicate with API
+2. <b>Bootstrap 5</b> for frontend
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Setting Up project
+1. Clone the project using command 
+`git clone https://github.com/mepujan/Time_Doctor_fe.git`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Install all the packages required using command:
+`npm install`
 
-### `npm test`
+3. Run the project using commands:
+`npm start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Team Members Information
+Name | Student Number
+--- | ---
+Anil Timalsina | c0839704
+Gurinder Singh | c0838084
+Kanishk Kalra | c0832722
+Pujan Gautam | c0842623
