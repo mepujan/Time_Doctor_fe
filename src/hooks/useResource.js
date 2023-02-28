@@ -6,7 +6,6 @@ export const useResources = (resourceURL) =>{
     const [resource,setResource] = useState(null);
     
     const token = useToken("userToken");
-    console.log(token);
     useEffect(()=>{
         (async () =>{
             const response = await axios.get(resourceURL,{

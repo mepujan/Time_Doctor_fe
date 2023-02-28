@@ -8,6 +8,5 @@ export const useToken = (tokenName) =>{
         const data = localStorage.getItem(tokenName);
         setToken(data);
     },[tokenName]);
-    console.log(token);
     return token;
 }
