@@ -6,7 +6,7 @@ import { SendNotification } from "../components/SendNotification"
 export const SendNotificationPage = () =>{
     return(
         <>
-            <NavBar />
+            <NavBar loginBtn={true}/>
             <SendNotification/>
             <Footer/>
         </>
