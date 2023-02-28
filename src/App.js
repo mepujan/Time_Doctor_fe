@@ -49,7 +49,7 @@ const App = () => {
 
           } />
 
-        <Route path='/schedule-surgery' element={
+        <Route path='schedule-surgery' element={
               <PrivateRoute>
                 <AddSurgeryEventPage />
               </PrivateRoute>

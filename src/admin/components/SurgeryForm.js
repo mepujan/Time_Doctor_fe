@@ -1,9 +1,9 @@
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import { SideBar } from "./SideBar";
 
 
-export const SurguryForm = () => {
+export const SurgeryForm = () => {
     const [patientId, setPatientId] = useState('');
     const [doctorId, setDoctorId] = useState('');
     const [surgeryDate, setSurgeryDate] = useState('');
@@ -22,7 +22,7 @@ export const SurguryForm = () => {
                         </div>
                         <div className="container" style={{marginLeft:50}}>
                                 <div className='col-md-6 mt-5'>
-                                    {errMsg && (
+                                    {/* {errMsg && (
                                         <Alert variant='danger'>
                                             {errMsg}
                                         </Alert>
@@ -31,8 +31,8 @@ export const SurguryForm = () => {
                                         <Alert variant='primary'>
                                             {successMsg}
                                         </Alert>
-                                    )}
-                                    <Form onSubmit={handleSubmit} encType='multipart/form-data'>
+                                    )} */}
+                                    <Form encType='multipart/form-data'>
                                         <Form.Group className="mb-3 mt-1" controlId="firstname">
                                             <Form.Label>Patient ID</Form.Label>
                                             <Form.Control type="text"
