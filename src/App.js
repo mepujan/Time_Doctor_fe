@@ -12,6 +12,7 @@ import { ProfilePage } from './pages/ProfilePage';
 import { ChangePasswordPage } from './pages/UpdatePasswordPage';
 import { SendNotificationPage } from './admin/pages/SendNotificationPage';
 import { AddSurgeryEventPage } from './admin/pages/AddSurgeryEvent';
+import { EventsPage } from './admin/pages/EventsPage';
 
 const App = () => {
   return (
@@ -42,7 +43,7 @@ const App = () => {
 
         } />
         <Route path='/admin'>
-          <Route path='dashboard' element={
+          <Route index element={
             <PrivateRoute>
               <DashBoard />
             </PrivateRoute>
@@ -58,6 +59,11 @@ const App = () => {
           <Route path='patient' element={
             <PrivateRoute>
               <PatientPage />
+            </PrivateRoute>
+          } />
+           <Route path='events' element={
+            <PrivateRoute>
+              <EventsPage />
             </PrivateRoute>
           } />
           <Route path='add-user' element={
