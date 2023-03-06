@@ -84,7 +84,7 @@ export const SurgeryForm = () => {
                                     </Form.Group>
 
                                     <Form.Group className="mb-4 mt-3" controlId="formStartDate">
-                                        <Form.Label>Surgery Date</Form.Label>
+                                        <Form.Label>Surgery Start Date Time</Form.Label>
                                         <Form.Control type="datetime-local"
                                             value={surgeryStartDate}
                                             onChange={e => setSurgeryStartDate(e.target.value)}
@@ -93,7 +93,7 @@ export const SurgeryForm = () => {
                                     </Form.Group>
 
                                     <Form.Group className="mb-4 mt-3" controlId="formD">
-                                        <Form.Label>Surgery Time</Form.Label>
+                                        <Form.Label>Surgery End Date Time </Form.Label>
                                         <Form.Control type="datetime-local"
                                             value={surgeryEndDate}
                                             onChange={e => setEndSurgeryDate(e.target.value)}

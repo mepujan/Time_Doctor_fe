@@ -1,4 +1,5 @@
 import { Nav } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import { FcAlarmClock,FcCalendar,FcManager,FcPortraitMode,FcList,FcBusinessman } from "react-icons/fc";
 
 export const SideBar = () => {
@@ -11,12 +12,12 @@ export const SideBar = () => {
            <Nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                         <div className="position-sticky pt-3">
                             <ul className="nav flex-column">
-                                <li className="nav-item">
-                                     <Nav.Link href="/admin/dashboard" style={style}>
-                                     <FcList className="me-2"/>
-                                        DashBoard
-                                    </Nav.Link>
-                                </li>
+                                    <li className="nav-item">
+                                        <Nav.Link href="/admin/dashboard" style={style}>
+                                        <FcList className="me-2"/>
+                                            DashBoard
+                                        </Nav.Link>
+                                    </li>
                                 <li className="nav-item">
                                      <Nav.Link href="/admin/patient" style={style}>
                                         <FcBusinessman className = "me-2" />
