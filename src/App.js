@@ -43,12 +43,6 @@ const App = () => {
 
         } />
         <Route path='/admin'>
-          <Route index element={
-            <PrivateRoute>
-              <DashBoard />
-            </PrivateRoute>
-
-          } />
 
         <Route path='schedule-surgery' element={
               <PrivateRoute>
@@ -79,6 +73,16 @@ const App = () => {
           <Route path='doctor' element={
             <PrivateRoute>
               <DoctorPage />
+            </PrivateRoute>
+          } />
+           <Route path = "dashboard" element={
+            <PrivateRoute>
+              <DashBoard />
+            </PrivateRoute>
+          } />
+           <Route index element={
+            <PrivateRoute>
+              <DashBoard />
             </PrivateRoute>
           } />
         </Route>
