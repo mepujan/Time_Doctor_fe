@@ -1,5 +1,5 @@
 
-import { Events } from "../components/Events"
+import { Events } from "../components/Event"
 import { Footer } from "../../components/Footer"
 import { NavBar } from "../../components/NavBar"
 

@@ -106,9 +106,11 @@ export const SurgeryForm = () => {
                                     </Button>
                                 </Form>
                             </div>
-                            <div className='col-md-3'></div>
+                            <div className='col-md-3'>
+                            </div>
                         </div>
                     </main>
+                   
                 </div>
             </div>
 
