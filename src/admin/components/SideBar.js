@@ -1,6 +1,7 @@
 import { Nav } from "react-bootstrap";
 import { FcAlarmClock, FcCalendar, FcManager, FcPortraitMode, FcList, FcBusinessman } from "react-icons/fc";
 import { NavLink } from "react-router-dom";
+import {AiOutlineSchedule} from 'react-icons/ai';
 
 
 export const SideBar = () => {
@@ -75,7 +76,7 @@ export const SideBar = () => {
                                 fontWeight: 500,
                                 color: "#333"
                             })}>
-                                <FcCalendar className="me-2" />
+                                <AiOutlineSchedule className="me-2" />
                                 Events
                             </NavLink>
                         </li>
