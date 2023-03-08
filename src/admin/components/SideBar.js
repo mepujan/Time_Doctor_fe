@@ -64,7 +64,7 @@ export const SideBar = () => {
                             <NavLink className="nav-link" to="/admin/schedule-surgery" style={({ isActive }) => ({
                                 backgroundColor: isActive ? "#3B71CA" : "white",
                                 fontWeight: 500,
-                                color: "#333"
+                                color: "#333",
                             })}>
                                 <FcCalendar className="me-2" />
                                 Schedule Surgery

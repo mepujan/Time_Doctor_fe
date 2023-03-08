@@ -134,6 +134,8 @@ export const Events = () => {
                                                     {new Date(event.end.dateTime).toLocaleString("en-US", options)} &nbsp;&nbsp;
                                                     {new Date(event.end.dateTime).toLocaleTimeString("en-US")}
                                                 </Card.Text>
+                                                <Button variant="secondary" size="sm">Active</Button>
+                                                <hr/>
                                                 <Button variant="primary me-3" onClick={() => handleShow(event.id, event.start.dateTime, event.end.dateTime)}>Reschedule</Button>
                                                 <Button variant="danger">Delete</Button>
                                             </Card.Body>
