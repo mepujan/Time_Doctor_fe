@@ -53,6 +53,7 @@ export const Events = () => {
                     "Authorization": `Bearer ${token}`
                 }
             });
+            window.location.reload();
             setSuccess("Successfully Reschedule the Surgery.")
             setShow(false);
             setTimeout(()=>{
