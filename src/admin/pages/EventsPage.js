@@ -1,7 +1,7 @@
 
 import { Events } from "../components/Event"
 import { Footer } from "../../components/Footer"
-import { NavBar } from "../../components/NavBar"
+import { NavBar } from "../components/AdminNavBar";
 
 export const EventsPage = () =>{
     return(

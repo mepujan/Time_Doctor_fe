@@ -1,6 +1,6 @@
 
 import { Footer } from "../../components/Footer";
-import { NavBar } from "../../components/NavBar";
+import { NavBar } from "../components/AdminNavBar";
 import { SurgeryForm } from "../components/SurgeryForm";
 
 export const AddSurgeryEventPage = () =>{

@@ -13,6 +13,7 @@ import { ChangePasswordPage } from './pages/UpdatePasswordPage';
 import { SendNotificationPage } from './admin/pages/SendNotificationPage';
 import { AddSurgeryEventPage } from './admin/pages/AddSurgeryEvent';
 import { EventsPage } from './admin/pages/EventsPage';
+import {AdminRoute} from './AdminRoute';
 
 const App = () => {
   return (
@@ -45,45 +46,45 @@ const App = () => {
         <Route path='/admin'>
 
         <Route path='schedule-surgery' element={
-              <PrivateRoute>
+              <AdminRoute>
                 <AddSurgeryEventPage />
-              </PrivateRoute>
+              </AdminRoute>
 
           } />
           <Route path='patient' element={
-            <PrivateRoute>
+            <AdminRoute>
               <PatientPage />
-            </PrivateRoute>
+            </AdminRoute>
           } />
            <Route path='events' element={
-            <PrivateRoute>
+            <AdminRoute>
               <EventsPage />
-            </PrivateRoute>
+            </AdminRoute>
           } />
           <Route path='add-user' element={
-            <PrivateRoute>
+            <AdminRoute>
               <SignUpPage />
-            </PrivateRoute>
+            </AdminRoute>
           } />
           <Route path='send-notification' element={
-            <PrivateRoute>
+            <AdminRoute>
               <SendNotificationPage />
-            </PrivateRoute>
+            </AdminRoute>
           } />
           <Route path='doctor' element={
-            <PrivateRoute>
+            <AdminRoute>
               <DoctorPage />
-            </PrivateRoute>
+            </AdminRoute>
           } />
            <Route path = "dashboard" element={
-            <PrivateRoute>
+            <AdminRoute>
               <DashBoard />
-            </PrivateRoute>
+            </AdminRoute>
           } />
            <Route index element={
-            <PrivateRoute>
+            <AdminRoute>
               <DashBoard />
-            </PrivateRoute>
+            </AdminRoute>
           } />
         </Route>
 
