@@ -12,6 +12,7 @@ export const Events = () => {
     const [eventId, setEventId] = useState('');
     const [success,setSuccess] = useState('');
     const [error,setError] = useState('');
+    const [deleteShow,setDeleteShow] = useState(false);
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     const dateTimeLocal = (date) => {
@@ -20,15 +21,17 @@ export const Events = () => {
         return dt.toISOString().slice(0, 16);
 
     }
-
+    const handleDeleteShow = () =>{
+        setDeleteShow(true);
+    }
+    const handleDeleteClose = () =>{
+        setDeleteShow(false);
+    }
     const handleClose = () => setShow(false);
     const handleShow = (id, start_date, end_date) => {
         setSurgeryStartDate(dateTimeLocal(start_date));
         setEndSurgeryDate(dateTimeLocal(end_date));
         setEventId(id);
-
-        console.log("Start -> ", start_date);
-        console.log("end ->", end_date);
         setShow(true);
     }
     const token = useToken("userToken");
@@ -63,6 +66,11 @@ export const Events = () => {
             },3000);
         }
     }
+
+    const handleDeleteSubmit = ()=>{
+        setDeleteShow(false);
+        console.log("deleted");
+    }
     return (
         <>
             <Modal show={show} onHide={handleClose}>
@@ -96,6 +104,26 @@ export const Events = () => {
                     </Button>
                     <Button variant="primary" onClick={handleSubmit}>
                         Reschedule
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+
+
+
+            <Modal show={deleteShow} onHide={handleDeleteShow}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Are You Sure?</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <h5>You Want to Cancel Schedule</h5>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleDeleteClose}>
+                        Close
+                    </Button>
+                    <Button variant="danger" onClick={handleDeleteSubmit}>
+                        Confirm
                     </Button>
                 </Modal.Footer>
             </Modal>
@@ -137,7 +165,7 @@ export const Events = () => {
                                                 <Button variant="secondary" size="sm">Active</Button>
                                                 <hr/>
                                                 <Button variant="primary me-3" onClick={() => handleShow(event.id, event.start.dateTime, event.end.dateTime)}>Reschedule</Button>
-                                                <Button variant="danger">Delete</Button>
+                                                <Button variant="danger" onClick={() =>handleDeleteShow()}>Delete</Button>
                                             </Card.Body>
                                         </Card>
                                     </div>
