@@ -4,6 +4,8 @@ import { SideBar } from "./SideBar";
 import { useResources } from "../../hooks/useResource";
 import axios from "../../api/axios";
 import { useToken } from "../../hooks/useToken";
+import ImportButton from "./importButton";
+
 
 
 export const SurgeryForm = () => {
@@ -135,6 +137,7 @@ export const SurgeryForm = () => {
                                 </Form>
                             </div>
                             <div className='col-md-3'>
+                                <ImportButton />
                             </div>
                         </div>
                     </main>
