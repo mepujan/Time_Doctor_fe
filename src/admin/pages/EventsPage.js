@@ -1,13 +1,15 @@
+
+import { Events } from "../components/Event"
 import { Footer } from "../../components/Footer"
 import { NavBar } from "../components/AdminNavBar";
-import { Patient } from "../components/Patient"
 
-export const PatientPage = () =>{
-    return (
+export const EventsPage = () =>{
+    return(
         <>
         <NavBar loginBtn={true}/>
-        <Patient/>
+        <Events/>
         <Footer/>
         </>
+
     )
 }

@@ -21,8 +21,11 @@ export const Login = () =>{
         localStorage.setItem("userToken",response.data.token);
         localStorage.setItem("username",response.data.user.user_name);
         localStorage.setItem("profile_pic",response.data.user.profile_image);
-        console.log(response.data.user);
-        navigate("/");
+        localStorage.setItem("role",response.data.user.role.name);
+        if(response.data.user.role.name === "administrator"){
+           return navigate("/admin/dashboard");
+        }
+        return navigate("/");
         
     }catch(e){
         setErrMsg("Invalid Username or Password.")

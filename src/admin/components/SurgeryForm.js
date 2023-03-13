@@ -15,6 +15,8 @@ export const SurgeryForm = () => {
     const [surgeryEndDate, setEndSurgeryDate] = useState('');
     const [successMsg, setSuccessMsg] = useState('');
     const [errMsg, setErrMsg] = useState('');
+    const [important, setImportant] = useState(false);
+    const [surgeryType,setSurgeryType] = useState([]);
 
     const patients = useResources("api/getUsersByRole/patient");
     const doctors = useResources("/api/getUsersByRole/doctor");
@@ -30,22 +32,33 @@ export const SurgeryForm = () => {
                 "end_date": surgeryEndDate
             }
 
+            // const infoToSaveToDB = {
+            //     "patient": patient,
+            //     "doctor": doctor,
+            //     "start_date": surgeryStartDate,
+            //     "end_date": surgeryEndDate,
+            //     "important":important,
+            // }
+
             await axios.post("/api/setEvent", scheduleInfo, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
             });
             setSuccessMsg("Successfully Scheduled the Surgery");
-            setTimeout(()=>{
+            setTimeout(() => {
                 setSuccessMsg('');
-            },3000);
+            }, 3000);
         } catch (e) {
             setErrMsg("Cannot Schedule the Surgery. Try Again...");
-            setTimeout(()=>{
+            setTimeout(() => {
                 setErrMsg('');
-            },3000);
+            }, 3000);
         }
     }
+
+    const boolArray = ["true", "false"];
+    const SurgeryTypes = useResources("api/surgeryType");
 
 
     return (
@@ -85,6 +98,13 @@ export const SurgeryForm = () => {
                                         </Form.Select>
                                     </Form.Group>
 
+                                    <Form.Group className="mb-4 mt-3" controlId="surgerytype">
+                                        <Form.Label>Surgery Type</Form.Label>
+                                        <Form.Select value={surgeryType} onChange={e => setSurgeryType(e.target.value)}>
+                                            {SurgeryTypes?.map(type => <option value={type} key={type.id}>{type.name}</option>)}
+                                        </Form.Select>
+                                    </Form.Group>
+
                                     <Form.Group className="mb-4 mt-3" controlId="formStartDate">
                                         <Form.Label>Surgery Start Date Time</Form.Label>
                                         <Form.Control type="datetime-local"
@@ -101,6 +121,14 @@ export const SurgeryForm = () => {
                                             onChange={e => setEndSurgeryDate(e.target.value)}
                                             placeholder="Select End Date time"
                                             required />
+
+                                    </Form.Group>
+                                   
+                                    <Form.Group className="mb-4 mt-3" controlId="important">
+                                        <Form.Label>Important</Form.Label>
+                                        <Form.Select value={important} onChange={e => setImportant(e.target.value)}>
+                                            {boolArray?.map(data => <option value={data} key={data}>{data}</option>)}
+                                        </Form.Select>
                                     </Form.Group>
 
                                     <Button variant="primary" type="submit">
@@ -113,6 +141,7 @@ export const SurgeryForm = () => {
                             </div>
                         </div>
                     </main>
+
                 </div>
             </div>
 

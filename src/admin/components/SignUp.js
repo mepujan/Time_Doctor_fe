@@ -173,7 +173,7 @@ export const SignUp = () => {
 
                                         <Form.Group className="mb-4 mt-3" controlId="role">
                                             <Form.Label>Role</Form.Label>
-                                            <Form.Select onChange={e => setRole(e.target.value)} >
+                                            <Form.Select value={role} onChange={e => setRole(e.target.value)} >
                                                 {roles?.map(r => <option value={r.id} key={r.id}>{r.name}</option>)}
                                             </Form.Select>
                                         </Form.Group>
@@ -181,14 +181,14 @@ export const SignUp = () => {
 
                                         <Form.Group className="mb-4 mt-3" controlId="gender">
                                             <Form.Label>Gender</Form.Label>
-                                            <Form.Select onChange={e => setGender(e.target.value)} >
+                                            <Form.Select value={gender} onChange={e => setGender(e.target.value)} >
                                                 {GenderOptions?.map(g => <option value={g} key={g}>{g}</option>)}
                                             </Form.Select>
                                         </Form.Group>
 
                                         <Form.Group className="mb-4 mt-3" controlId="blood-group">
                                             <Form.Label>Blood Group</Form.Label>
-                                            <Form.Select onChange={e => setBloodGroup(e.target.value)}>
+                                            <Form.Select value={bloodGroup} onChange={e => setBloodGroup(e.target.value)}>
                                                 {BloodGroupOptions.map(bldgrp => <option value={bldgrp} key={bldgrp}>{bldgrp}</option>)}
                                             </Form.Select>
                                         </Form.Group>

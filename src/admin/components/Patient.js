@@ -20,7 +20,7 @@ export const Patient = () => {
                             {patients?.map((patient) => (
                                 <div className="col-md-4">
                                 <Card className="mt-4" key={patient.id} style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src={`http://`+ patient.profile_image} />
+                                    <Card.Img variant="top" src={`http://`+ patient.profile_image} style={{ height: '17rem',objectFit:'cover' }}/>
                                     <Card.Body>
                                         <Card.Title>{patient.user_name}</Card.Title>
                                         <Card.Text>{patient.email}</Card.Text>

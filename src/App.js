@@ -12,6 +12,8 @@ import { ProfilePage } from './pages/ProfilePage';
 import { ChangePasswordPage } from './pages/UpdatePasswordPage';
 import { SendNotificationPage } from './admin/pages/SendNotificationPage';
 import { AddSurgeryEventPage } from './admin/pages/AddSurgeryEvent';
+import { EventsPage } from './admin/pages/EventsPage';
+import {AdminRoute} from './AdminRoute';
 
 const App = () => {
   return (
@@ -42,38 +44,47 @@ const App = () => {
 
         } />
         <Route path='/admin'>
-          <Route path='dashboard' element={
-            <PrivateRoute>
-              <DashBoard />
-            </PrivateRoute>
-
-          } />
 
         <Route path='schedule-surgery' element={
-              <PrivateRoute>
+              <AdminRoute>
                 <AddSurgeryEventPage />
-              </PrivateRoute>
+              </AdminRoute>
 
           } />
           <Route path='patient' element={
-            <PrivateRoute>
+            <AdminRoute>
               <PatientPage />
-            </PrivateRoute>
+            </AdminRoute>
+          } />
+           <Route path='events' element={
+            <AdminRoute>
+              <EventsPage />
+            </AdminRoute>
           } />
           <Route path='add-user' element={
-            <PrivateRoute>
+            <AdminRoute>
               <SignUpPage />
-            </PrivateRoute>
+            </AdminRoute>
           } />
           <Route path='send-notification' element={
-            <PrivateRoute>
+            <AdminRoute>
               <SendNotificationPage />
-            </PrivateRoute>
+            </AdminRoute>
           } />
           <Route path='doctor' element={
-            <PrivateRoute>
+            <AdminRoute>
               <DoctorPage />
-            </PrivateRoute>
+            </AdminRoute>
+          } />
+           <Route path = "dashboard" element={
+            <AdminRoute>
+              <DashBoard />
+            </AdminRoute>
+          } />
+           <Route index element={
+            <AdminRoute>
+              <DashBoard />
+            </AdminRoute>
           } />
         </Route>
 
