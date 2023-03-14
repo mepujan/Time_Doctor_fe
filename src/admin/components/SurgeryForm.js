@@ -16,7 +16,7 @@ export const SurgeryForm = () => {
     const [successMsg, setSuccessMsg] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [important, setImportant] = useState(false);
-    const [surgeryType,setSurgeryType] = useState([]);
+    const [surgeryType,setSurgeryType] = useState();
 
     const patients = useResources("api/getUsersByRole/patient");
     const doctors = useResources("/api/getUsersByRole/doctor");
@@ -29,7 +29,9 @@ export const SurgeryForm = () => {
                 "patient": patient,
                 "doctor": doctor,
                 "start_date": surgeryStartDate,
-                "end_date": surgeryEndDate
+                "end_date": surgeryEndDate,
+                "surgeryTypeId":surgeryType,
+                "important":important
             }
 
             // const infoToSaveToDB = {
@@ -101,7 +103,7 @@ export const SurgeryForm = () => {
                                     <Form.Group className="mb-4 mt-3" controlId="surgerytype">
                                         <Form.Label>Surgery Type</Form.Label>
                                         <Form.Select value={surgeryType} onChange={e => setSurgeryType(e.target.value)}>
-                                            {SurgeryTypes?.map(type => <option value={type} key={type.id}>{type.name}</option>)}
+                                            {SurgeryTypes?.map(type => <option value={type.id} key={type.id}>{type.name}</option>)}
                                         </Form.Select>
                                     </Form.Group>
 
@@ -136,7 +138,7 @@ export const SurgeryForm = () => {
                                     </Button>
                                 </Form>
                             </div>
-                            <div className='col-md-3'>
+                            <div className='col-md-3 me-auto'>
                                 <ImportButton />
                             </div>
                         </div>

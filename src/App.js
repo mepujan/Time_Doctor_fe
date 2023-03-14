@@ -14,6 +14,7 @@ import { SendNotificationPage } from './admin/pages/SendNotificationPage';
 import { AddSurgeryEventPage } from './admin/pages/AddSurgeryEvent';
 import { EventsPage } from './admin/pages/EventsPage';
 import {AdminRoute} from './AdminRoute';
+import { MedicalQuestionaries } from './pages/MedicalQuestionaries';
 
 const App = () => {
   return (
@@ -22,6 +23,12 @@ const App = () => {
         <Route path="/" element={
           <PrivateRoute>
             <HomePage />
+          </PrivateRoute>
+
+        } />
+         <Route path="/medical-questionaries/:id" element={
+          <PrivateRoute>
+            <MedicalQuestionaries/>
           </PrivateRoute>
 
         } />

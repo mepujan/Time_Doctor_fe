@@ -11,7 +11,7 @@ export const NavBar = ({ loginBtn }) => {
             src="/time_doctor_logo.png"
             width="80"
             height="80"
-            style={{ marginLeft: 20 }}
+            style={{ marginLeft: 20,objectFit:"cover" }}
             className="d-inline-block align-top img-fluid"
             alt="Time Doctor Logo"
           />{'  '}

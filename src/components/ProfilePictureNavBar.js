@@ -20,6 +20,7 @@ export const ProfilePictureNavBar = () =>{
           src={imageUrl}
           width="60"
           height="60"
+          style={{objectFit:"cover"}}
           className="rounded-circle align-top ms-4"
           alt="Profile logo"
         /><br/> 
