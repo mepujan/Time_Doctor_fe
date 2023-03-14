@@ -1,31 +1,36 @@
-import React, { useRef } from 'react';
-import { Form } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import axios from '../../api/axios';
 
-function ImportButton() {
-  const inputRef = useRef(null);
+const ImportButton = () => {
+  const [csvFile, setCsvFile] = useState();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    try {
+      const formData = new FormData();
+      formData.append('csv', csvFile, csvFile.name);
+      axios.post("/api/createFromCSV", formData);
+      setCsvFile('');
+      alert("Data Inserted Successfully")
 
-  const handleImportClick = () => {
-    inputRef.current.click();
-  };
-
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsText(file);
-    reader.onload = () => {
-      const fileContent = reader.result;
-      // Do something with the file content
-    };
-  };
-
+    } catch (e) {
+      alert("Error in uploading data.Try Again")
+    }
+  }
   return (
     <>
-      <Form.Group className="mb-4 mt-3" controlId="profilepic">
-        <Form.Label>Upload CSV</Form.Label>
-        <Form.Control type="file"
-          accept=".csv"
-          required />
-      </Form.Group>
+      <Form onSubmit={handleSubmit} encType="multipart/form-data">
+        <Form.Group className="mb-4 mt-3" controlId="csvfile">
+          <Form.Label>Upload CSV</Form.Label>
+          <Form.Control type="file"
+            accept=".csv"
+            onChange={e => setCsvFile(e.target.files[0])}
+            required />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Upload
+        </Button>
+      </Form>
     </>
   );
 }
