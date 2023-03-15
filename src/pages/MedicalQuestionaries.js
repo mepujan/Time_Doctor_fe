@@ -6,10 +6,12 @@ import { useState } from "react";
 import { QuestionForm } from "../components/QuestionForm";
 import axios from "../api/axios";
 import { useToken } from "../hooks/useToken";
+import { useNavigate } from "react-router-dom";
 
 export const MedicalQuestionaries = () => {
 
     const [inputFields, setInputFields] = useState([]);
+    const navigate = useNavigate();
 
     const handleChange = (e)=>{
         const newChange = {
@@ -25,13 +27,13 @@ export const MedicalQuestionaries = () => {
         try{
             
             const data = inputFields;
-           const res = await axios.post("/api/saveAnswer",data, {
+           await axios.post("/api/saveAnswer",data, {
             headers:{
                 'Authorization': `Bearer ${token}`
             }
-           })
-           console.log(res.data);
-
+           });
+           navigate("/medical-questionaries/submitted");
+           
         }catch(e){
             console.log(e);
         }

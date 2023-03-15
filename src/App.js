@@ -15,6 +15,7 @@ import { AddSurgeryEventPage } from './admin/pages/AddSurgeryEvent';
 import { EventsPage } from './admin/pages/EventsPage';
 import {AdminRoute} from './AdminRoute';
 import { MedicalQuestionaries } from './pages/MedicalQuestionaries';
+import QuestionarieSubmittedPage from './pages/QuestionarieSubmittedPage';
 
 const App = () => {
   return (
@@ -29,6 +30,12 @@ const App = () => {
          <Route path="/medical-questionaries/:id" element={
           <PrivateRoute>
             <MedicalQuestionaries/>
+          </PrivateRoute>
+
+        } />
+        <Route path="/medical-questionaries/submitted" element={
+          <PrivateRoute>
+            <QuestionarieSubmittedPage/>
           </PrivateRoute>
 
         } />
