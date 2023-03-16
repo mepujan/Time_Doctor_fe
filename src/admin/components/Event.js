@@ -1,4 +1,4 @@
-import { Button, Card, Modal, Form,Alert } from "react-bootstrap";
+import { Button, Card, Modal, Form, Alert } from "react-bootstrap";
 import { useResources } from "../../hooks/useResource";
 import { SideBar } from "./SideBar";
 import { useState } from "react";
@@ -10,9 +10,10 @@ export const Events = () => {
     const [surgeryStartDate, setSurgeryStartDate] = useState(new Date());
     const [surgeryEndDate, setEndSurgeryDate] = useState(new Date());
     const [eventId, setEventId] = useState('');
-    const [success,setSuccess] = useState('');
-    const [error,setError] = useState('');
-    const [deleteShow,setDeleteShow] = useState(false);
+    const [success, setSuccess] = useState('');
+    const [error, setError] = useState('');
+    const [deleteShow, setDeleteShow] = useState(false);
+    let events = [];
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
     const dateTimeLocal = (date) => {
@@ -21,10 +22,11 @@ export const Events = () => {
         return dt.toISOString().slice(0, 16);
 
     }
-    const handleDeleteShow = () =>{
+    const handleDeleteShow = (id) => {
+        setEventId(id);
         setDeleteShow(true);
     }
-    const handleDeleteClose = () =>{
+    const handleDeleteClose = () => {
         setDeleteShow(false);
     }
     const handleClose = () => setShow(false);
@@ -35,7 +37,7 @@ export const Events = () => {
         setShow(true);
     }
     const token = useToken("userToken");
-    const events = useResources("/api/events");
+    events = useResources("/api/events");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -56,21 +58,33 @@ export const Events = () => {
             window.location.reload();
             setSuccess("Successfully Reschedule the Surgery.")
             setShow(false);
-            setTimeout(()=>{
+            setTimeout(() => {
                 setSuccess('');
-            },5000);
+            }, 5000);
 
         } catch (e) {
             setError("Surgery Re-scheduling Failed. Try Again...");
-            setTimeout(()=>{
+            setTimeout(() => {
                 setError('');
-            },3000);
+            }, 3000);
         }
     }
 
-    const handleDeleteSubmit = ()=>{
-        setDeleteShow(false);
-        console.log("deleted");
+    const handleDeleteSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post("/api/cancelSchedule", { 'eventId': eventId }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            setDeleteShow(false);
+            window.location.reload();
+
+        } catch (e) {
+            console.log(e);
+        }
+
     }
     return (
         <>
@@ -137,23 +151,23 @@ export const Events = () => {
                             <h1 className="h2">Events</h1>
                         </div>
                         <div className="container">
-                        {error && (
-                                    <Alert variant='danger'>
-                                        {error}
-                                    </Alert>
-                                )}
-                                {success && (
-                                    <Alert variant='primary'>
-                                        {success}
-                                    </Alert>
-                                )}
+                            {error && (
+                                <Alert variant='danger'>
+                                    {error}
+                                </Alert>
+                            )}
+                            {success && (
+                                <Alert variant='primary'>
+                                    {success}
+                                </Alert>
+                            )}
                             <div className="row">
                                 {events?.map((event) => (
                                     <div key={event.id} className="col-md-4">
                                         <Card className="mt-4" key={event.id} style={{ width: '18rem' }}>
                                             <Card.Body>
                                                 <Card.Title>{event.attendees[1].email}</Card.Title>
-                                                <hr/>
+                                                <hr />
                                                 <Card.Text>Schedule Date Time</Card.Text>
                                                 <Card.Text><strong>From: </strong>
                                                     {new Date(event.start.dateTime).toLocaleString("en-US", options)} &nbsp;&nbsp;
@@ -164,9 +178,9 @@ export const Events = () => {
                                                     {new Date(event.end.dateTime).toLocaleTimeString("en-US")}
                                                 </Card.Text>
                                                 <Button variant="secondary" size="sm">Active</Button>
-                                                <hr/>
+                                                <hr />
                                                 <Button variant="primary me-3" onClick={() => handleShow(event.id, event.start.dateTime, event.end.dateTime)}>Reschedule</Button>
-                                                <Button variant="danger" onClick={() =>handleDeleteShow()}>Delete</Button>
+                                                <Button variant="danger" onClick={() => handleDeleteShow(event.id)}>Delete</Button>
                                             </Card.Body>
                                         </Card>
                                     </div>
