@@ -17,9 +17,11 @@ export const SurgeryForm = () => {
     const [errMsg, setErrMsg] = useState('');
     const [important, setImportant] = useState(false);
     const [surgeryType, setSurgeryType] = useState();
+    const [roomNumber, setRoomNumber] = useState();
 
     const patients = useResources("api/getUsersByRole/patient");
     const doctors = useResources("/api/getUsersByRole/doctor");
+    const rooms = useResources("/api/room")
     const token = useToken("userToken");
 
     const handleSubmit = async (e) => {
@@ -31,7 +33,8 @@ export const SurgeryForm = () => {
                 "start_date": surgeryStartDate,
                 "end_date": surgeryEndDate,
                 "surgeryTypeId": surgeryType,
-                "important": important
+                "important": important,
+                "surgeryRoomId": roomNumber
             }
 
             await axios.post("/api/setEvent", scheduleInfo, {
@@ -66,81 +69,86 @@ export const SurgeryForm = () => {
                             <h1 className="h2">Schedule Surgery</h1>
                         </div>
                         <Stack direction="horizontal">
-                                <div className='col-md-6 mt-3'>
-                                    {errMsg && (
-                                        <Alert variant='danger'>
-                                            {errMsg}
-                                        </Alert>
-                                    )}
-                                    {successMsg && (
-                                        <Alert variant='primary'>
-                                            {successMsg}
-                                        </Alert>
-                                    )}
+                            <div className='col-md-6 mt-3'>
+                                {errMsg && (
+                                    <Alert variant='danger'>
+                                        {errMsg}
+                                    </Alert>
+                                )}
+                                {successMsg && (
+                                    <Alert variant='primary'>
+                                        {successMsg}
+                                    </Alert>
+                                )}
 
-                                    <Form onSubmit={handleSubmit}>
-                                        <Form.Group className="mb-4 mt-3" controlId="doctor">
-                                            <Form.Label>Doctor</Form.Label>
-                                            <Form.Select onChange={e => setDoctor(e.target.value)} value={doctor} >
-                                                {doctors?.map(doctor => <option value={doctor.id} key={doctor.id}>{doctor.user_name}</option>)}
-                                            </Form.Select>
-                                        </Form.Group>
+                                <Form onSubmit={handleSubmit}>
+                                    <Form.Group className="mb-4 mt-3" controlId="doctor">
+                                        <Form.Label>Doctor</Form.Label>
+                                        <Form.Select onChange={e => setDoctor(e.target.value)} value={doctor} >
+                                            {doctors?.map(doctor => <option value={doctor.id} key={doctor.id}>{doctor.user_name}</option>)}
+                                        </Form.Select>
+                                    </Form.Group>
 
-                                        <Form.Group className="mb-4 mt-3" controlId="patient">
-                                            <Form.Label>Patient</Form.Label>
-                                            <Form.Select onChange={e => setPatient(e.target.value)} value={patient} >
-                                                {patients?.map(patient => <option value={patient.id} key={patient.id}>{patient.user_name}</option>)}
-                                            </Form.Select>
-                                        </Form.Group>
+                                    <Form.Group className="mb-4 mt-3" controlId="patient">
+                                        <Form.Label>Patient</Form.Label>
+                                        <Form.Select onChange={e => setPatient(e.target.value)} value={patient} >
+                                            {patients?.map(patient => <option value={patient.id} key={patient.id}>{patient.user_name}</option>)}
+                                        </Form.Select>
+                                    </Form.Group>
 
-                                        <Form.Group className="mb-4 mt-3" controlId="surgerytype">
-                                            <Form.Label>Surgery Type</Form.Label>
-                                            <Form.Select value={surgeryType} onChange={e => setSurgeryType(e.target.value)}>
-                                                {SurgeryTypes?.map(type => <option value={type.id} key={type.id}>{type.name}</option>)}
-                                            </Form.Select>
-                                        </Form.Group>
+                                    <Form.Group className="mb-4 mt-3" controlId="surgerytype">
+                                        <Form.Label>Surgery Type</Form.Label>
+                                        <Form.Select value={surgeryType} onChange={e => setSurgeryType(e.target.value)}>
+                                            {SurgeryTypes?.map(type => <option value={type.id} key={type.id}>{type.name}</option>)}
+                                        </Form.Select>
+                                    </Form.Group>
+                                    <Form.Group className="mb-4 mt-3" controlId="roomNumber">
+                                        <Form.Label>Room Number</Form.Label>
+                                        <Form.Select value={roomNumber} onChange={e => setRoomNumber(e.target.value)}>
+                                            {rooms?.map(room => <option value={room.id} key={room.id}>{room.number}</option>)}
+                                        </Form.Select>
+                                    </Form.Group>
+                                    <Form.Group className="mb-4 mt-3" controlId="formStartDate">
+                                        <Form.Label>Surgery Start Date Time</Form.Label>
+                                        <Form.Control type="datetime-local"
+                                            value={surgeryStartDate}
+                                            onChange={e => setSurgeryStartDate(e.target.value)}
+                                            placeholder="Select Date"
+                                            required />
+                                    </Form.Group>
 
-                                        <Form.Group className="mb-4 mt-3" controlId="formStartDate">
-                                            <Form.Label>Surgery Start Date Time</Form.Label>
-                                            <Form.Control type="datetime-local"
-                                                value={surgeryStartDate}
-                                                onChange={e => setSurgeryStartDate(e.target.value)}
-                                                placeholder="Select Date"
-                                                required />
-                                        </Form.Group>
+                                    <Form.Group className="mb-4 mt-3" controlId="formD">
+                                        <Form.Label>Surgery End Date Time </Form.Label>
+                                        <Form.Control type="datetime-local"
+                                            value={surgeryEndDate}
+                                            onChange={e => setEndSurgeryDate(e.target.value)}
+                                            placeholder="Select End Date time"
+                                            required />
 
-                                        <Form.Group className="mb-4 mt-3" controlId="formD">
-                                            <Form.Label>Surgery End Date Time </Form.Label>
-                                            <Form.Control type="datetime-local"
-                                                value={surgeryEndDate}
-                                                onChange={e => setEndSurgeryDate(e.target.value)}
-                                                placeholder="Select End Date time"
-                                                required />
+                                    </Form.Group>
 
-                                        </Form.Group>
+                                    <Form.Group className="mb-4 mt-3" controlId="important">
+                                        <Form.Label>Important</Form.Label>
+                                        <Form.Select value={important} onChange={e => setImportant(e.target.value)}>
+                                            {boolArray?.map(data => <option value={data} key={data}>{data}</option>)}
+                                        </Form.Select>
+                                    </Form.Group>
 
-                                        <Form.Group className="mb-4 mt-3" controlId="important">
-                                            <Form.Label>Important</Form.Label>
-                                            <Form.Select value={important} onChange={e => setImportant(e.target.value)}>
-                                                {boolArray?.map(data => <option value={data} key={data}>{data}</option>)}
-                                            </Form.Select>
-                                        </Form.Group>
+                                    <Button variant="primary" type="submit">
+                                        Schedule Surgery
+                                    </Button>
+                                </Form>
 
-                                        <Button variant="primary" type="submit">
-                                            Schedule Surgery
-                                        </Button>
-                                    </Form>
+                            </div>
 
-                                </div>
-                            
-                            <div className="container col-md-6 p-3 m-3" style={{backgroundColor:"#D3D3D3",position:"relative", top:-160}}>
+                            <div className="container col-md-6 p-3 m-3" style={{ backgroundColor: "#D3D3D3", position: "relative", top: -160 }}>
 
                                 <ImportButton />
                             </div>
                         </Stack>
 
                     </main>
-                
+
                 </div>
             </div >
 

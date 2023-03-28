@@ -13,28 +13,28 @@ export const MedicalQuestionaries = () => {
     const [inputFields, setInputFields] = useState([]);
     const navigate = useNavigate();
 
-    const handleChange = (e)=>{
+    const handleChange = (e) => {
         const newChange = {
-            'questionId':e.target.dataset.question,
-            'answer':e.target.value
+            'questionId': e.target.dataset.question,
+            'answer': e.target.value
         }
-        setInputFields([...inputFields,newChange]);
+        setInputFields([...inputFields, newChange]);
     }
 
     const token = useToken('userToken');
-    const handleSubmit = async(e) =>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        try{
-            
+        try {
+
             const data = inputFields;
-           await axios.post("/api/saveAnswer",data, {
-            headers:{
-                'Authorization': `Bearer ${token}`
-            }
-           });
-           navigate("/medical-questionaries/submitted");
-           
-        }catch(e){
+            await axios.post("/api/saveAnswer", data, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            navigate("/medical-questionaries/submitted");
+
+        } catch (e) {
             console.log(e);
         }
     }
@@ -48,14 +48,14 @@ export const MedicalQuestionaries = () => {
 
             <div className='container mt-3'>
                 <div className="text-center mb-5">
-                    <h2 className="mb-2">Medical Questionaries</h2>
+                    <h2 className="mb-2">Medical Questionnaries</h2>
                     <span>Please Submit these details to confirm your schedule</span>
 
                 </div>
                 <h3>Heart</h3>
                 <Table striped bordered hover size="sm">
                     <tbody>
-                        <QuestionForm questions={heartQuestions} setData={handleChange}/>
+                        <QuestionForm questions={heartQuestions} setData={handleChange} />
                     </tbody>
                 </Table>
 
@@ -63,21 +63,21 @@ export const MedicalQuestionaries = () => {
                 <h3>Breathing</h3>
                 <Table striped bordered hover size="sm">
                     <tbody>
-                    <QuestionForm questions={breatheQuestions} setData = {handleChange}/>
+                        <QuestionForm questions={breatheQuestions} setData={handleChange} />
                     </tbody>
                 </Table>
 
                 <h3>Neurological</h3>
                 <Table striped bordered hover size="sm">
                     <tbody>
-                    <QuestionForm questions={neuroQuestions} setData={handleChange}/>
+                        <QuestionForm questions={neuroQuestions} setData={handleChange} />
                     </tbody>
                 </Table>
 
                 <h3>Others</h3>
                 <Table striped bordered hover size="sm" className="mb-3">
                     <tbody>
-                    <QuestionForm questions={otherQuestions} setData={handleChange}/>
+                        <QuestionForm questions={otherQuestions} setData={handleChange} />
 
                     </tbody>
                 </Table>
