@@ -40,9 +40,7 @@ const App = () => {
 
         } />
         <Route path="/profile" element={
-          <PrivateRoute>
             <ProfilePage />
-          </PrivateRoute>
 
         } />
         <Route path="/change-password" element={
