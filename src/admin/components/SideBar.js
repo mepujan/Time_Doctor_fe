@@ -1,7 +1,7 @@
 import { Nav } from "react-bootstrap";
 import { FcAlarmClock, FcCalendar, FcManager, FcPortraitMode, FcList, FcBusinessman } from "react-icons/fc";
 import { NavLink } from "react-router-dom";
-import {AiOutlineSchedule} from 'react-icons/ai';
+import { AiOutlineSchedule } from 'react-icons/ai';
 
 
 export const SideBar = () => {
@@ -76,10 +76,20 @@ export const SideBar = () => {
                                 fontWeight: 500,
                                 color: "#333"
                             })}>
-                                <AiOutlineSchedule className="me-2" />
+                                <AiOutlineSchedule className="me-2" style={{ color: "red" }} />
                                 Events
                             </NavLink>
                         </li>
+                        {/* <li className="nav-item">
+                            <NavLink to="/admin/patient" className="nav-link" style={({ isActive }) => ({
+                                backgroundColor: isActive ? "#3B71CA" : "white",
+                                fontWeight: 500,
+                                color: "#333"
+                            })}>
+                                <FcAddRow className="me-2" />
+                                Add Room
+                            </NavLink>
+                        </li> */}
                     </ul>
                 </div>
             </Nav>
