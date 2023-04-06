@@ -16,6 +16,7 @@ import { EventsPage } from './admin/pages/EventsPage';
 import {AdminRoute} from './AdminRoute';
 import { MedicalQuestionaries } from './pages/MedicalQuestionaries';
 import QuestionarieSubmittedPage from './pages/QuestionarieSubmittedPage';
+import { Export } from './admin/components/export';
 
 const App = () => {
   return (
@@ -66,6 +67,11 @@ const App = () => {
           <Route path='patient' element={
             <AdminRoute>
               <PatientPage />
+            </AdminRoute>
+          } />
+          <Route path='export' element={
+            <AdminRoute>
+              <Export />
             </AdminRoute>
           } />
            <Route path='events' element={
