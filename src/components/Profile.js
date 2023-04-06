@@ -55,19 +55,19 @@ export const Profile = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let formData = new FormData();
-            formData.append('first_name', firstName);
-            formData.append('last_name', lastName);
-            formData.append('middle_name', middleName);
-            formData.append('email', email);
-            formData.append('user_name', userName);
-            formData.append('address', address);
-            formData.append('mobile_number', mobileNumber);
-            formData.append('dob', dob);
-            formData.append('role_id', role);
-            formData.append('gender', gender);
-            formData.append('blood_group', bloodGroup);
-
+            const formData = {
+                'first_name': firstName,
+                'last_name': lastName,
+                'middle_name': middleName,
+                'email': email,
+                'user_name': userName,
+                'address': address,
+                'mobile_number': mobileNumber,
+                'dob': dob,
+                'role_id': role,
+                'gender': gender,
+                'blood_group': bloodGroup
+            };
             await axios.put("/api/updateUser", formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`
